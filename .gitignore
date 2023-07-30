@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 artifact
 .vscode
+docs
 # C extensions
 *.so
 
