@@ -1,69 +1,68 @@
-# Sensor-Fault-Detection
+# Scania Truck Failure Prediction Project
 
-### Problem Statement
-The Air Pressure System (APS) is a critical component of a heavy-duty vehicle that uses compressed air to force a piston to provide pressure to the brake pads, slowing the vehicle down. The benefits of using an APS instead of a hydraulic system are the easy availability and long-term sustainability of natural air.
+<p align="center">
+  <img src="[https://your-image-url.com" alt="Project Logo](https://www.bing.com/images/search?view=detailV2&ccid=OVWSA%2frw&id=3E120B8E373C07FF5397E71EB0AB9CD5831F9131&thid=OIP.OVWSA_rwoxTcBouLqvd2nQHaFY&mediaurl=https%3a%2f%2fwallpapercave.com%2fwp%2fAr2a6Vl.jpg&exph=2519&expw=3469&q=scania+truck+&simid=608008662060652615&FORM=IRPRST&ck=8F4AADB82F328F5138112FB52AB5E64C&selectedIndex=4)">
+</p>
 
-This is a Binary Classification problem, in which the affirmative class indicates that the failure was caused by a certain component of the APS, while the negative class
-indicates that the failure was caused by something else.
+## Predicting Scania Truck Failures with Machine Learning
 
-### Solution Proposed 
-In this project, the system in focus is the Air Pressure system (APS) which generates pressurized air that are utilized in various functions in a truck, such as braking and gear changes. The datasets positive class corresponds to component failures for a specific component of the APS system. The negative class corresponds to trucks with failures for components not related to the APS system.
+Welcome to the Scania Truck Failure Prediction Project, where we leverage the power of machine learning to enhance the reliability and efficiency of Scania trucks by predicting potential failures before they occur.
 
-The problem is to reduce the cost due to unnecessary repairs. So it is required to minimize the false predictions.
+## Project Goal 🚛
 
-## How to run?
-Before we run the project, make sure that you are having MongoDB in your local system, with Compass since we are using MongoDB for data storage. You also need AWS account to access the service like S3, ECR and EC2 instances.
+Our primary mission is to improve Scania truck operations:
 
-### Step 1: Install the requirements
-```bash
-pip install -r requirements.txt
-```
-### step2 - data_dump.py
-```bash
-we have creat file name data_dump.py in which we have established connection with mongodb database and dump data in database.
-```
+- **Proactive Maintenance:** Predict truck failures in advance, enabling timely maintenance.
+- **Reduce Downtime:** Minimize unexpected breakdowns to keep the fleet operational.
+- **Cost Efficiency:** Optimize maintenance costs and extend truck lifespans.
 
-### step3 - utils.py
-```bash
-Here we have make some important function which will help in our component part.
-```
+## Approach 🛠️
 
-### step4 - Census 
-```bash
-In this folder we have creat our Components folder and entity folder and pipeline folder.
-```
+Our strategy is rooted in data and intelligence:
 
-### step5 - entity
-```bash
-Here we have two file one is artifact_entity.py and another is config_entity.py config_entity.py - Here we store some important input like what all input it takes while initiating our class example in data_ingestion.py file it will take training_pipeline class which help us to make artifact directory in current directory and also store some pre define path. artifact_entity.py - Here we store output of our component files like generally we store file path and all here.
-```
+- **Machine Learning Models:** We employ advanced ML models to analyze historical truck data.
+- **Feature Engineering:** Extract valuable insights from sensor and operational data.
+- **Early Warning System:** Create alerts for potential failures, allowing for preventive actions.
+- **Web Dashboard:** Visualize real-time truck health and maintenance recommendations.
 
-### step6 - Component
-```bash
-Here we have define cycle of machine learning model-
-```
+## Tools & Technologies 🧰
 
-* data_ingestion.py: In this phase we will get our data from mongodb database with the help of get_datafram_as_df function which we have define in "utils.py" and after getting data we perform some cleaning of data then we will save our data in csv file in "feature store" inside "dataingestion" directory and here we also done splitting our data in train and test so this data can further we use for data validation and transformation and all phase so we have also save our train and test data in train.py and test.py file in "dataset" directory which is inside of "dataingestion" directory inside artifact directory.
+Our toolbox comprises cutting-edge tools and technologies:
 
+- **Python:** The core language for data analysis and machine learning.
+- **Scikit-Learn:** For building predictive models.
+- **TensorFlow/Keras:** Deep learning for complex pattern recognition.
+- **Pandas & NumPy:** Data manipulation and numerical computing.
+- **Tableau:** Visualizing insights and real-time dashboards.
+- **Docker:** Containerization for seamless deployment.
 
-* data_validation.py: In this phase we will validate our new data with previous data like here we check missing columns and data drift and all , and we store this validation report in a report.yaml file and save that file in "data_validation" directory in artifact directory and path of this file save in "data_validation" class insdie artifact_entity.py file.
+## Features That Empower 🌟
 
-* data_transformation.py: In this phase we will transform our data according to our EDA which we have done in jupyter notebook like all preprocessing steps like scalling our data encoding our target column and also convert cat column to numerical with the help of ordinal encoder and all and save all these object in our "data_transformation" directory inside artifact director and path of these object inside "DataTransformationArtifact" class in artifact_entity.py file.
+- **Predictive Maintenance:** Detect potential truck failures before they disrupt operations.
+- **Real-Time Alerts:** Receive instant notifications when issues arise.
+- **Data-Driven Insights:** Make informed maintenance decisions based on historical data.
+- **Cost Optimization:** Reduce unplanned repair costs and extend truck lifespans.
 
-* model_trainer.py: In this phase we will train our model on random forest algorithm and save our model in artifact folder and path is saved in "ModelTrainerArtifact" class in "model_trainer" directory insdie artifact directory and path of our model stored in "model_trainer" class inside artifact_entity.py file.
+## Business Outcomes 📈
 
-* model_evaluation.py: Here we compare our new model with previous model which is already in prodution for this we have made some function in our predictor.py file like "get_latest_model" this will fetch our currently trained model and "get_latest_save_model" this will fetch previous trained model which store in saved model directory save for transformation object and all then we will compare our both model if our currently trained model is better than previous trained model than we will go for model pusher phase and we will save our new model if not then it will gives us a error that "current trained model is not better than previous model".
+Our project delivers tangible business benefits:
 
-* model_pusher.py: Here we just save our new model and all transformation object which will help us in prediction.
+- **Improved Reliability:** Enhance truck reliability and reduce breakdowns.
+- **Reduced Downtime:** Minimize truck downtime and maintain operational efficiency.
+- **Cost Savings:** Optimize maintenance costs and allocate resources efficiently.
 
-### step7 - pipeline
-* Here we made two file one is for training our model and onother for batch prediction- training_pipeline.py - In this file we have just write our code in sequance like we have mention data_ingestion phase first then validation than transformation and so on. batch_prediction.py - In this file we have just made prediction of given file and send back to prediction directory and save it their.
+## Getting Started 🚀
 
-### step8 - main.py
-* With this file we can trigger our batch prediction pipeline and training_pipeline.py
+Explore the project by following the instructions in the [User Guide](user-guide.md).
 
-### step9 - batch_predicition.py
-* First uncomment this batch prediction line if it is commented in main.py file than trigger it it will take a file path for which you want to make predicition simply give it that path and trigger main.py file predicition will start after predicition predicted file save in prediction directory
+## Contribution 🤝
 
-### step10 - 
-* Deployement we have used docker here and with the help of github action we have made our work automate after deployement we can access our airflow so that we can shedule our training pipeline and batch_prection pipeline from their.
+Join our open-source community! We welcome contributions from experts worldwide. Start with our [Contribution Guidelines](CONTRIBUTING.md).
+
+---
+
+Thank you for embarking on this journey with us to improve Scania truck operations. Let's transform the world of logistics together! If you have any questions or ideas, reach out to us at [jyotikpr999@gmail.com](mailto:your-email@example.com).
+
+---
+
+*Disclaimer: The project logo displayed above is a placeholder. Please replace it with your project's logo or an image that represents the Scania truck failure prediction project.*
