@@ -1,7 +1,7 @@
 # Scania Truck Failure Prediction Project
 
 <p align="center">
-  <img src="[https://your-image-url.com" alt="Project Logo](https://www.bing.com/images/search?view=detailV2&ccid=OVWSA%2frw&id=3E120B8E373C07FF5397E71EB0AB9CD5831F9131&thid=OIP.OVWSA_rwoxTcBouLqvd2nQHaFY&mediaurl=https%3a%2f%2fwallpapercave.com%2fwp%2fAr2a6Vl.jpg&exph=2519&expw=3469&q=scania+truck+&simid=608008662060652615&FORM=IRPRST&ck=8F4AADB82F328F5138112FB52AB5E64C&selectedIndex=4)">
+  <img src="![Uploading image.png…]()">
 </p>
 
 ## Predicting Scania Truck Failures with Machine Learning
